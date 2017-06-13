@@ -1,0 +1,20 @@
+<section class="home-content">
+  <h2>Welcome home!</h2>
+  <create-gallery></create-gallery>
+
+  <input type="text" ng-model="homeCtrl.gallerySearchTerm" placeholder="search">
+
+  <select
+    name="gallery selection"
+    ng-options="item as item.name for item in homeCtrl.galleries track by item._id"
+    ng-model="homeCtrl.currentGallery">
+  </select>
+
+  <ul>
+    <uib-accordian>
+      <gallery-item ng-repeat="item in homeCtrl.galleries | fuzzySearch : homeCtrl.gallerySearchTerm" gallery="item"></gallery-item>
+    </uib-accordian>
+  </ul>
+
+  <thumbnail-container ng-if="homeCtrl.currentGallery" gallery="homeCtrl.currentGallery"></thumbnail-container>
+</section>
