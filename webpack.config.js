@@ -10,7 +10,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const production = process.env.NODE_ENV === 'production'
 
 let plugins = [
-  new ExtractTextPlugin({ filename: 'bundle.css' }),
+  new ExtractTextPlugin('bundle.css'),
   new HTMLPlugin({template: `${__dirname}/app/index.html`}),
   new webpack.DefinePlugin({
     __API_URL__: JSON.stringify(process.env.API_URL),
@@ -37,7 +37,7 @@ module.exports = {
   },
   plugins,
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -53,7 +53,7 @@ module.exports = {
       },
       {
         test: /\.(jpg|jpeg|svg|bmp|tiff|gif|png)$/,
-        loader: 'url-loader?limit=10000&name=image/[hash].[ext]'
+        use: 'url-loader?limit=10000&name=image/[hash].[ext]'
       },
       {
         test: /\.scss$/,
