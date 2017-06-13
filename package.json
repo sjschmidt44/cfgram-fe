@@ -6,8 +6,8 @@
   "engines": {
     "node": "6.10.0"
   },
+  "start": "node server.js",
   "scripts": {
-    "start": "node server.js",
     "build": "webpack",
     "build-watch": "webpack-dev-server --inline --hot",
     "test": "karma start --single-run",
