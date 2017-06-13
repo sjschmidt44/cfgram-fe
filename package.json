@@ -2,12 +2,17 @@
   "name": "26-angular-routing",
   "version": "1.0.0",
   "description": "",
-  "main": "karma.config.js",
+  "main": "server.js",
+  "engines": {
+    "node": "6.10.0"
+  },
   "scripts": {
+    "start": "node server.js",
     "build": "webpack",
     "build-watch": "webpack-dev-server --inline --hot",
     "test": "karma start --single-run",
-    "test-watch": "karma start --auto-watch"
+    "test-watch": "karma start --auto-watch",
+    "heroku-postbuild": "webpack -p --progress"
   },
   "keywords": [],
   "author": "",
