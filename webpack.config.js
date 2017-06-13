@@ -18,15 +18,6 @@ let plugins = [
   })
 ]
 
-// if(production) {
-//   plugins = plugins.concat([
-//     new webpack.optimize.UglifyJsPlugin({
-//       compress: { warnings: false }
-//     }),
-//     new CleanPlugin()
-//   ])
-// }
-
 module.exports = {
   entry: `${__dirname}/app/entry.js`,
   devtool: false,
@@ -64,9 +55,6 @@ module.exports = {
               },
               {
                 loader: 'sass-loader',
-                options: {
-                  includePaths: [`${__dirname}/app/scss/`]
-                }
               }
             ]
           }
