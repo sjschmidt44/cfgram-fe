@@ -18,9 +18,19 @@ let plugins = [
   })
 ]
 
+if(production) {
+  plugins = plugins.concat([
+    new webpack.optimize.UglifyJsPlugin({
+      mangle: true,
+      compress: { warnings: false }
+    }),
+    new CleanPlugin()
+  ])
+}
+
 module.exports = {
   entry: `${__dirname}/app/entry.js`,
-  devtool: false,
+  devtool: production ? false : 'source-map',
   output: {
     filename: 'bundle.js',
     path: `${__dirname}/build`
@@ -47,18 +57,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract(
-          {
-            use: [
-              {
-                loader: 'css-loader'
-              },
-              {
-                loader: 'sass-loader',
-              }
-            ]
-          }
-        )
+        use: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
       }
     ]
   }
