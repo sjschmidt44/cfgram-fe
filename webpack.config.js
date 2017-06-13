@@ -60,13 +60,11 @@ module.exports = {
           {
             use: [
               {
-                loader: 'css-loader',
-                options: { sourceMap: true }
+                loader: 'css-loader'
               },
               {
                 loader: 'sass-loader',
                 options: {
-                  sourceMap: true,
                   includePaths: [`${__dirname}/app/scss/`]
                 }
               }
