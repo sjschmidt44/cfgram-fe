@@ -29,7 +29,7 @@ let plugins = [
 
 module.exports = {
   entry: `${__dirname}/app/entry.js`,
-  devtool: production ? false : 'source-map',
+  devtool: false,
   output: {
     filename: 'bundle.js',
     path: `${__dirname}/build`
