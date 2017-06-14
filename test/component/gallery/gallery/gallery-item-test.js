@@ -32,30 +32,30 @@ describe('Gallery Item Controller', function() {
   //   })
   // })
 
-  describe('delete gallery', () => {
-    // NOTE this is providing a false positive
-    it('should remove a gallery from the app', done => {
-      let expectUrl = 'http://localhost:3000/gallery/1234'
-      let expectHeaders = {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${this.$window.localStorage.token}`
-      }
-      this.galleryService.galleries = [
-        {name: 'one', desc: 'one', _id: '1234'},
-        {name: 'two', desc: 'two', _id: '4567'}
-      ]
-      this.$httpBackend.expectDELETE(expectUrl, expectHeaders)
-      .respond(204)
-      this.galleryItemCtrl.gallery = {name: 'one', desc: 'one', _id: '1234'}
-
-      this.galleryItemCtrl.deleteGallery().then(() => {
-        console.log(this.galleryService.galleries);
-        this.$httpBackend.flush()
-        this.$rootScope.$apply()
-      })
-
-      done()
-    })
-  })
+  // describe('delete gallery', () => {
+  //   // NOTE this is providing a false positive
+  //   it('should remove a gallery from the app', done => {
+  //     let expectUrl = 'http://localhost:3000/gallery/1234'
+  //     let expectHeaders = {
+  //       'Accept': 'application/json',
+  //       'Content-Type': 'application/json',
+  //       Authorization: `Bearer ${this.$window.localStorage.token}`
+  //     }
+  //     this.galleryService.galleries = [
+  //       {name: 'one', desc: 'one', _id: '1234'},
+  //       {name: 'two', desc: 'two', _id: '4567'}
+  //     ]
+  //     this.$httpBackend.expectDELETE(expectUrl, expectHeaders)
+  //     .respond(204)
+  //     this.galleryItemCtrl.gallery = {name: 'one', desc: 'one', _id: '1234'}
+  //
+  //     this.galleryItemCtrl.deleteGallery().then(() => {
+  //       console.log(this.galleryService.galleries);
+  //       this.$httpBackend.flush()
+  //       this.$rootScope.$apply()
+  //     })
+  //
+  //     done()
+  //   })
+  // })
 })
