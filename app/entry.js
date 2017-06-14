@@ -2,10 +2,7 @@
 
 // require('./scss/main.scss')
 
-const path = require('path')
 const angular = require('angular')
-const camelcase = require('camelcase')
-const pascalcase = require('pascalcase')
 const ngTouch = require('angular-touch')
 const ngAnimate = require('angular-animate')
 
@@ -18,17 +15,33 @@ const cfgram = angular.module(
   ['ui.router', 'ngFileUpload', 'ngTouch', 'ngAnimate', 'ui.bootstrap']
 )
 
-let context = require.context('./config/', true, /\.js$/)
-context.keys().forEach( path => cfgram.config(context(path)))
+// CONFIGS
+require('./config/log-config')
+require('./config/router-config')
 
-context = require.context('./view/', true, /\.js$/)
-context.keys().forEach( key => cfgram.controller(pascalcase(path.basename(key, '.js')),  context(key)))
+// VIEW CONTROLLERS
+require('./view/home/home-controller.js')
+require('./view/landing/landing-controller.js')
 
-context = require.context('./service/', true, /\.js$/)
-context.keys().forEach( key => cfgram.service(camelcase(path.basename(key, '.js')), context(key)))
+// SERVICES
+require('./service/auth-service.js')
+require('./service/gallery-service.js')
+require('./service/pic-service.js')
 
-context = require.context('./component/', true, /\.js$/)
-context.keys().forEach( key => cfgram.component(camelcase(path.basename(key, '.js')), context(key)))
+// COMPONENTS
+require('./component/gallery/create-gallery/create-gallery.js')
+require('./component/gallery/edit-gallery/edit-gallery.js')
+require('./component/gallery/gallery-item/gallery-item.js')
+require('./component/gallery/thumbnail/thumbnail.js')
+require('./component/gallery/thumbnail-container/thumbnail-container.js')
+require('./component/gallery/upload-pic/upload-pic.js')
 
-context = require.context('./filter/', true, /\.js$/)
-context.keys().forEach(key => cfgram.filter(camelcase(path.basename(key, '.js')), context(key)))
+require('./component/landing/login/login.js')
+require('./component/landing/signup/signup.js')
+
+require('./component/navbar/navbar.js')
+
+// FILTERS
+require('./filter/custom-sort.js')
+require('./filter/custom-uppercase.js')
+require('./filter/fuzzy-search.js')
