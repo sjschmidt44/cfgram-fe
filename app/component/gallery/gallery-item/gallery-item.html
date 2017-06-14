@@ -1,8 +1,8 @@
 <li uib-accordian-group heading="{{ galleryItemCtrl.gallery.name | uppercase }}">
-  <h1>{{ galleryItemCtrl.gallery.name | customUppercase }}</h1>
-  <h2>created {{ galleryItemCtrl.daysSince | date : "d" }} days ago</h2>
+  <h1>{{ galleryItemCtrl.gallery.name | uppercase }}</h1>
+  <!-- <h2>created {{ galleryItemCtrl.daysSince | date : "d" }} days ago</h2>
   <h2>created: {{ galleryItemCtrl.gallery.created | date }}</h2>
-  <h3>buy this gallery for: {{ galleryItemCtrl.cost | currency : $ : 0}}</h3>
+  <h3>buy this gallery for: {{ galleryItemCtrl.cost | currency : $ : 0}}</h3> -->
 
 
   <div class="current-item" ng-if="!galleryItemCtrl.showEditGallery">
