@@ -41,6 +41,7 @@ module.exports = {
       {
         test: /\.js$/,
         // exclude: /node_modules/,
+        // include: /node_modules\/camelcase\/**/,
         use: ['babel-loader']
       },
       {

@@ -25,12 +25,12 @@ describe('Gallery Item Controller', function() {
     done()
   })
 
-  describe('galleryItemCtrl Default Props', () => {
-    it('should have a property of showEditGallery set to false', done => {
-      expect(this.galleryItemCtrl.showEditGallery).to.be.false
-      done()
-    })
-  })
+  // describe('galleryItemCtrl Default Props', () => {
+  //   it('should have a property of showEditGallery set to false', done => {
+  //     expect(this.galleryItemCtrl.showEditGallery).to.be.false
+  //     done()
+  //   })
+  // })
 
   describe('delete gallery', () => {
     // NOTE this is providing a false positive

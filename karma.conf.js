@@ -30,7 +30,7 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_DISABLE,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
     singleRun: false,
     concurrency: Infinity
   })
